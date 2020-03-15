@@ -5,7 +5,7 @@
             <p class="block__title">Общая информация:</p>
             <ul class="block-list">
                 <li class="block-list__item">{{ nodes.length }} нод</li>
-                <li class="block-list__item">18 интерфейсов</li>
+                <li class="block-list__item">{{ interfaces.length }} интерфейсов</li>
             </ul>
         </div>
         <div class="block city">
@@ -28,7 +28,8 @@ export default {
         status: null,
         current: null,
         active: null,
-        cities: null
+        cities: null,
+        interfaces: null
     }),
     components: {City},
     computed: {
@@ -37,6 +38,9 @@ export default {
         },
         getCities () {
             return this.$store.getters.getCities;
+        },
+        getInterfaces () {
+            return this.$store.getters.getInterfaces;
         }
         
     },
@@ -103,6 +107,9 @@ export default {
         getCities (cities) {
             let hash = this.$route.params.title;
             (hash) ? this.setCities(cities, hash) : this.cities = cities;            
+        },
+        getInterfaces (interfaces){
+            this.interfaces = interfaces;
         },
         $route(to) {
             let hash = to.params.title;

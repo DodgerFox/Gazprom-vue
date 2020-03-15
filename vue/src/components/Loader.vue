@@ -1,9 +1,9 @@
 <template>
     <section class="loader">
         <div id="loader">
-  <div id="shadow"></div>
-  <div id="box"></div>
-</div>
+          <div id="shadow"></div>
+          <div id="box"></div>
+        </div>
     </section>
 </template>
 

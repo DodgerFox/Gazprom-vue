@@ -40,7 +40,6 @@ export default {
         },
         getCurrent (current) {
             this.current = false;
-            
             (current && this.city.id == current.id) ? this.current = true : '';
         }
     }

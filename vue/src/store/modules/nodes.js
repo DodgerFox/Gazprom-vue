@@ -9,7 +9,8 @@ export default {
         city: null,
         cities: null,
         metrics: null,
-        statuses: null
+        statuses: null,
+        interfaces: null
     },
     actions: {
         async fetchData({commit}) {
@@ -62,11 +63,11 @@ export default {
                     node.lastmetric = options;
                 }
             })});
+            
             commit('setNodes', nodes)
             commit('setCities', nodes)
-            commit('setStatuses', nodes)
-
-            
+            commit('setStatuses', nodes)            
+            commit('setInterfaces', nodes)            
           },
         changeCity ({commit}, city) {
             commit("setCity", city)
@@ -110,6 +111,22 @@ export default {
                 }
             });
             state.statuses = arr;
+        },
+        setInterfaces (state, nodes) {
+            let arr = [], counter = 0;
+            nodes.forEach(node => {
+                if (node.interface > counter){
+                    counter++
+                    const obj = {
+                        id: node.interface,
+                        caption: node.caption,
+                        status: node.interface_status
+                    }
+                    arr.push(obj)
+                }
+            });
+            arr.push(counter)
+            state.interfaces = arr;
         }
     },
     getters: {
@@ -133,6 +150,9 @@ export default {
         },
         getStatuses (state) {
             return state.statuses
+        },
+        getInterfaces (state) {
+            return state.interfaces
         }
     }
 }
