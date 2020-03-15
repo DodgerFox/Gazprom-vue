@@ -1,0 +1,80 @@
+.block{
+	background-color: @second;
+	padding: 20px;
+	border-radius: 12px;
+	margin: 10px 0;
+	box-shadow: @shadow;
+    min-width: 400px;
+
+
+	&__title{
+		color: @font;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		padding-bottom: 10px;
+	}
+
+	&.status{
+        font-size: 20px;
+        letter-spacing: 0.5px;
+		text-align: center;
+		color: white;
+    }
+    
+    &-list{
+        padding-left: 15px;
+        &__item{
+            font-size: 14px;
+            font-weight: 500;
+            padding-bottom: 5px;
+
+            &:before {
+                content: "— ";
+            }
+        }
+    }
+
+    &-button{
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 2px 0;
+        width: fit-content;
+        .userselect();
+        .t();
+        &:hover {
+            background-color: @four;
+        }
+        &.current {
+            background-color: @four;
+        }
+        &.active {
+            background-color: @lightgreen;
+        }
+    }
+
+    &__name{
+        font-size: 32px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &-interface{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        &__status{
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        &__name{
+            font-size: 14px;
+        }
+    }
+}
